@@ -5,6 +5,20 @@ frontend/node_modules/
 # env
 .env
 .env.*
+backend/.env
+backend/.env.*
 
 # macOS
 .DS_Store
+
+# Next.js
+frontend/.next/
+frontend/out/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.venv/
+venv/
