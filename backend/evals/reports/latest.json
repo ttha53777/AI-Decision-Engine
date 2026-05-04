@@ -1,0 +1,930 @@
+{
+  "summary": {
+    "mode": "mock",
+    "total_cases": 30,
+    "exclude_insufficient": false,
+    "accuracy": 0.6,
+    "insufficient_rate": 0.1,
+    "avg_latency_ms": 0.09,
+    "confusion": {
+      "Option A": {
+        "Option A": 10,
+        "Option B": 0,
+        "insufficient_information": 0
+      },
+      "Option B": {
+        "Option A": 12,
+        "Option B": 5,
+        "insufficient_information": 0
+      },
+      "insufficient_information": {
+        "Option A": 0,
+        "Option B": 0,
+        "insufficient_information": 3
+      }
+    },
+    "top_driver_match_rate": 0.3704
+  },
+  "results": [
+    {
+      "id": "case_001_job_stability_vs_startup",
+      "expected_recommendation": "Option A",
+      "predicted_recommendation": "Option A",
+      "ok": true,
+      "latency_ms": 1.5,
+      "insufficient": false,
+      "score_summary": {
+        "optionA_total": 42.4,
+        "optionB_total": 40.73
+      },
+      "score_breakdown": {
+        "cost": {
+          "weight": 1.9,
+          "impact": 1.9
+        },
+        "growth": {
+          "weight": 1.57,
+          "impact": -4.7
+        },
+        "risk": {
+          "weight": 1.73,
+          "impact": 3.47
+        },
+        "goal_alignment": {
+          "weight": 1.0,
+          "impact": 1.0
+        }
+      },
+      "top_driver": "growth",
+      "expected_top_driver": "risk"
+    },
+    {
+      "id": "case_002_move_city_vs_remote",
+      "expected_recommendation": "Option B",
+      "predicted_recommendation": "Option A",
+      "ok": false,
+      "latency_ms": 0.06,
+      "insufficient": false,
+      "score_summary": {
+        "optionA_total": 37.93,
+        "optionB_total": 36.37
+      },
+      "score_breakdown": {
+        "cost": {
+          "weight": 1.9,
+          "impact": 0.0
+        },
+        "growth": {
+          "weight": 1.57,
+          "impact": 1.57
+        },
+        "risk": {
+          "weight": 1.0,
+          "impact": 0.0
+        },
+        "goal_alignment": {
+          "weight": 1.73,
+          "impact": 0.0
+        }
+      },
+      "top_driver": "growth",
+      "expected_top_driver": "cost"
+    },
+    {
+      "id": "case_003_degree_program",
+      "expected_recommendation": "Option B",
+      "predicted_recommendation": "Option B",
+      "ok": true,
+      "latency_ms": 0.05,
+      "insufficient": false,
+      "score_summary": {
+        "optionA_total": 29.65,
+        "optionB_total": 32.95
+      },
+      "score_breakdown": {
+        "cost": {
+          "weight": 1.65,
+          "impact": 3.3
+        },
+        "growth": {
+          "weight": 1.9,
+          "impact": 0.0
+        },
+        "risk": {
+          "weight": 1.0,
+          "impact": 0.0
+        },
+        "goal_alignment": {
+          "weight": 1.0,
+          "impact": 0.0
+        }
+      },
+      "top_driver": "cost",
+      "expected_top_driver": "cost"
+    },
+    {
+      "id": "case_004_take_promotion",
+      "expected_recommendation": "Option B",
+      "predicted_recommendation": "Option A",
+      "ok": false,
+      "latency_ms": 0.04,
+      "insufficient": false,
+      "score_summary": {
+        "optionA_total": 35.47,
+        "optionB_total": 35.47
+      },
+      "score_breakdown": {
+        "cost": {
+          "weight": 1.9,
+          "impact": 0.0
+        },
+        "growth": {
+          "weight": 1.0,
+          "impact": 0.0
+        },
+        "risk": {
+          "weight": 1.57,
+          "impact": 0.0
+        },
+        "goal_alignment": {
+          "weight": 1.73,
+          "impact": 0.0
+        }
+      },
+      "top_driver": "cost",
+      "expected_top_driver": "goal_alignment"
+    },
+    {
+      "id": "case_005_buy_house_vs_rent",
+      "expected_recommendation": "Option B",
+      "predicted_recommendation": "Option A",
+      "ok": false,
+      "latency_ms": 0.04,
+      "insufficient": false,
+      "score_summary": {
+        "optionA_total": 35.6,
+        "optionB_total": 35.2
+      },
+      "score_breakdown": {
+        "cost": {
+          "weight": 1.9,
+          "impact": -1.9
+        },
+        "growth": {
+          "weight": 1.0,
+          "impact": 0.0
+        },
+        "risk": {
+          "weight": 2.3,
+          "impact": 2.3
+        },
+        "goal_alignment": {
+          "weight": 1.0,
+          "impact": 0.0
+        }
+      },
+      "top_driver": "risk",
+      "expected_top_driver": "risk"
+    },
+    {
+      "id": "case_006_side_project",
+      "expected_recommendation": "Option B",
+      "predicted_recommendation": "Option A",
+      "ok": false,
+      "latency_ms": 0.04,
+      "insufficient": false,
+      "score_summary": {
+        "optionA_total": 29.07,
+        "optionB_total": 28.07
+      },
+      "score_breakdown": {
+        "cost": {
+          "weight": 1.0,
+          "impact": 0.0
+        },
+        "growth": {
+          "weight": 1.0,
+          "impact": 1.0
+        },
+        "risk": {
+          "weight": 1.57,
+          "impact": 0.0
+        },
+        "goal_alignment": {
+          "weight": 1.73,
+          "impact": 0.0
+        }
+      },
+      "top_driver": "growth",
+      "expected_top_driver": "goal_alignment"
+    },
+    {
+      "id": "case_007_switch_teams",
+      "expected_recommendation": "Option A",
+      "predicted_recommendation": "Option A",
+      "ok": true,
+      "latency_ms": 0.04,
+      "insufficient": false,
+      "score_summary": {
+        "optionA_total": 35.1,
+        "optionB_total": 32.95
+      },
+      "score_breakdown": {
+        "cost": {
+          "weight": 1.0,
+          "impact": 0.0
+        },
+        "growth": {
+          "weight": 1.9,
+          "impact": 3.8
+        },
+        "risk": {
+          "weight": 1.65,
+          "impact": -1.65
+        },
+        "goal_alignment": {
+          "weight": 1.0,
+          "impact": 0.0
+        }
+      },
+      "top_driver": "growth",
+      "expected_top_driver": "growth"
+    },
+    {
+      "id": "case_008_travel_job",
+      "expected_recommendation": "Option B",
+      "predicted_recommendation": "Option A",
+      "ok": false,
+      "latency_ms": 0.04,
+      "insufficient": false,
+      "score_summary": {
+        "optionA_total": 30.4,
+        "optionB_total": 30.4
+      },
+      "score_breakdown": {
+        "cost": {
+          "weight": 1.65,
+          "impact": 0.0
+        },
+        "growth": {
+          "weight": 1.0,
+          "impact": 1.0
+        },
+        "risk": {
+          "weight": 1.0,
+          "impact": -1.0
+        },
+        "goal_alignment": {
+          "weight": 1.9,
+          "impact": 0.0
+        }
+      },
+      "top_driver": "growth",
+      "expected_top_driver": "goal_alignment"
+    },
+    {
+      "id": "case_009_investment_choice",
+      "expected_recommendation": "Option A",
+      "predicted_recommendation": "Option A",
+      "ok": true,
+      "latency_ms": 0.04,
+      "insufficient": false,
+      "score_summary": {
+        "optionA_total": 30.3,
+        "optionB_total": 28.75
+      },
+      "score_breakdown": {
+        "cost": {
+          "weight": 1.0,
+          "impact": 0.0
+        },
+        "growth": {
+          "weight": 1.0,
+          "impact": -1.0
+        },
+        "risk": {
+          "weight": 2.55,
+          "impact": 2.55
+        },
+        "goal_alignment": {
+          "weight": 1.0,
+          "impact": 0.0
+        }
+      },
+      "top_driver": "risk",
+      "expected_top_driver": "risk"
+    },
+    {
+      "id": "case_010_learning_path",
+      "expected_recommendation": "Option B",
+      "predicted_recommendation": "Option A",
+      "ok": false,
+      "latency_ms": 0.05,
+      "insufficient": false,
+      "score_summary": {
+        "optionA_total": 41.9,
+        "optionB_total": 41.57
+      },
+      "score_breakdown": {
+        "cost": {
+          "weight": 1.57,
+          "impact": -1.57
+        },
+        "growth": {
+          "weight": 1.9,
+          "impact": 1.9
+        },
+        "risk": {
+          "weight": 1.73,
+          "impact": 0.0
+        },
+        "goal_alignment": {
+          "weight": 1.0,
+          "impact": 0.0
+        }
+      },
+      "top_driver": "growth",
+      "expected_top_driver": "cost"
+    },
+    {
+      "id": "case_011_manager_role",
+      "expected_recommendation": "Option A",
+      "predicted_recommendation": "Option A",
+      "ok": true,
+      "latency_ms": 0.04,
+      "insufficient": false,
+      "score_summary": {
+        "optionA_total": 35.1,
+        "optionB_total": 29.65
+      },
+      "score_breakdown": {
+        "cost": {
+          "weight": 1.0,
+          "impact": 0.0
+        },
+        "growth": {
+          "weight": 1.9,
+          "impact": 3.8
+        },
+        "risk": {
+          "weight": 1.0,
+          "impact": 0.0
+        },
+        "goal_alignment": {
+          "weight": 1.65,
+          "impact": 1.65
+        }
+      },
+      "top_driver": "growth",
+      "expected_top_driver": "growth"
+    },
+    {
+      "id": "case_012_two_offers_unclear",
+      "expected_recommendation": "insufficient_information",
+      "predicted_recommendation": "insufficient_information",
+      "ok": true,
+      "latency_ms": 0.01,
+      "insufficient": true,
+      "score_summary": null,
+      "score_breakdown": null,
+      "top_driver": null,
+      "expected_top_driver": null
+    },
+    {
+      "id": "case_013_empty_priorities",
+      "expected_recommendation": "insufficient_information",
+      "predicted_recommendation": "insufficient_information",
+      "ok": true,
+      "latency_ms": 0.01,
+      "insufficient": true,
+      "score_summary": null,
+      "score_breakdown": null,
+      "top_driver": null,
+      "expected_top_driver": null
+    },
+    {
+      "id": "case_014_meaningless_priority",
+      "expected_recommendation": "insufficient_information",
+      "predicted_recommendation": "insufficient_information",
+      "ok": true,
+      "latency_ms": 0.01,
+      "insufficient": true,
+      "score_summary": null,
+      "score_breakdown": null,
+      "top_driver": null,
+      "expected_top_driver": null
+    },
+    {
+      "id": "case_015_start_business",
+      "expected_recommendation": "Option A",
+      "predicted_recommendation": "Option A",
+      "ok": true,
+      "latency_ms": 0.04,
+      "insufficient": false,
+      "score_summary": {
+        "optionA_total": 38.27,
+        "optionB_total": 31.0
+      },
+      "score_breakdown": {
+        "cost": {
+          "weight": 1.73,
+          "impact": 3.47
+        },
+        "growth": {
+          "weight": 1.0,
+          "impact": 0.0
+        },
+        "risk": {
+          "weight": 1.9,
+          "impact": 3.8
+        },
+        "goal_alignment": {
+          "weight": 1.57,
+          "impact": 0.0
+        }
+      },
+      "top_driver": "risk",
+      "expected_top_driver": "risk"
+    },
+    {
+      "id": "case_016_start_business_autonomy",
+      "expected_recommendation": "Option B",
+      "predicted_recommendation": "Option A",
+      "ok": false,
+      "latency_ms": 0.04,
+      "insufficient": false,
+      "score_summary": {
+        "optionA_total": 36.87,
+        "optionB_total": 31.73
+      },
+      "score_breakdown": {
+        "cost": {
+          "weight": 1.57,
+          "impact": 3.13
+        },
+        "growth": {
+          "weight": 1.73,
+          "impact": 0.0
+        },
+        "risk": {
+          "weight": 1.0,
+          "impact": 2.0
+        },
+        "goal_alignment": {
+          "weight": 1.9,
+          "impact": 0.0
+        }
+      },
+      "top_driver": "cost",
+      "expected_top_driver": "goal_alignment"
+    },
+    {
+      "id": "case_017_public_company_vs_startup",
+      "expected_recommendation": "Option B",
+      "predicted_recommendation": "Option A",
+      "ok": false,
+      "latency_ms": 0.04,
+      "insufficient": false,
+      "score_summary": {
+        "optionA_total": 41.47,
+        "optionB_total": 41.1
+      },
+      "score_breakdown": {
+        "cost": {
+          "weight": 1.57,
+          "impact": 0.0
+        },
+        "growth": {
+          "weight": 2.63,
+          "impact": -2.63
+        },
+        "risk": {
+          "weight": 1.0,
+          "impact": 3.0
+        },
+        "goal_alignment": {
+          "weight": 1.0,
+          "impact": 0.0
+        }
+      },
+      "top_driver": "risk",
+      "expected_top_driver": "growth"
+    },
+    {
+      "id": "case_018_public_company_money_first",
+      "expected_recommendation": "Option A",
+      "predicted_recommendation": "Option A",
+      "ok": true,
+      "latency_ms": 0.04,
+      "insufficient": false,
+      "score_summary": {
+        "optionA_total": 41.07,
+        "optionB_total": 37.43
+      },
+      "score_breakdown": {
+        "cost": {
+          "weight": 1.9,
+          "impact": 0.0
+        },
+        "growth": {
+          "weight": 1.57,
+          "impact": -1.57
+        },
+        "risk": {
+          "weight": 1.73,
+          "impact": 5.2
+        },
+        "goal_alignment": {
+          "weight": 1.0,
+          "impact": 0.0
+        }
+      },
+      "top_driver": "risk",
+      "expected_top_driver": "cost"
+    },
+    {
+      "id": "case_019_health_priority",
+      "expected_recommendation": "Option B",
+      "predicted_recommendation": "Option A",
+      "ok": false,
+      "latency_ms": 0.04,
+      "insufficient": false,
+      "score_summary": {
+        "optionA_total": 24.25,
+        "optionB_total": 23.25
+      },
+      "score_breakdown": {
+        "cost": {
+          "weight": 1.0,
+          "impact": 0.0
+        },
+        "growth": {
+          "weight": 1.0,
+          "impact": 1.0
+        },
+        "risk": {
+          "weight": 1.0,
+          "impact": 0.0
+        },
+        "goal_alignment": {
+          "weight": 1.65,
+          "impact": 0.0
+        }
+      },
+      "top_driver": "growth",
+      "expected_top_driver": "goal_alignment"
+    },
+    {
+      "id": "case_020_course_purchase",
+      "expected_recommendation": "Option B",
+      "predicted_recommendation": "Option B",
+      "ok": true,
+      "latency_ms": 0.04,
+      "insufficient": false,
+      "score_summary": {
+        "optionA_total": 31.05,
+        "optionB_total": 31.3
+      },
+      "score_breakdown": {
+        "cost": {
+          "weight": 1.9,
+          "impact": 1.9
+        },
+        "growth": {
+          "weight": 1.65,
+          "impact": -1.65
+        },
+        "risk": {
+          "weight": 1.0,
+          "impact": 0.0
+        },
+        "goal_alignment": {
+          "weight": 1.0,
+          "impact": 0.0
+        }
+      },
+      "top_driver": "cost",
+      "expected_top_driver": "cost"
+    },
+    {
+      "id": "case_021_switch_stacks",
+      "expected_recommendation": "Option B",
+      "predicted_recommendation": "Option A",
+      "ok": false,
+      "latency_ms": 0.04,
+      "insufficient": false,
+      "score_summary": {
+        "optionA_total": 32.95,
+        "optionB_total": 32.95
+      },
+      "score_breakdown": {
+        "cost": {
+          "weight": 1.0,
+          "impact": 0.0
+        },
+        "growth": {
+          "weight": 1.65,
+          "impact": 0.0
+        },
+        "risk": {
+          "weight": 1.9,
+          "impact": 0.0
+        },
+        "goal_alignment": {
+          "weight": 1.0,
+          "impact": 0.0
+        }
+      },
+      "top_driver": "cost",
+      "expected_top_driver": "growth"
+    },
+    {
+      "id": "case_022_company_move_timing",
+      "expected_recommendation": "Option B",
+      "predicted_recommendation": "Option B",
+      "ok": true,
+      "latency_ms": 0.04,
+      "insufficient": false,
+      "score_summary": {
+        "optionA_total": 29.65,
+        "optionB_total": 31.3
+      },
+      "score_breakdown": {
+        "cost": {
+          "weight": 1.0,
+          "impact": 0.0
+        },
+        "growth": {
+          "weight": 1.9,
+          "impact": 0.0
+        },
+        "risk": {
+          "weight": 1.65,
+          "impact": 1.65
+        },
+        "goal_alignment": {
+          "weight": 1.0,
+          "impact": 0.0
+        }
+      },
+      "top_driver": "risk",
+      "expected_top_driver": "risk"
+    },
+    {
+      "id": "case_023_financial_runway",
+      "expected_recommendation": "Option A",
+      "predicted_recommendation": "Option A",
+      "ok": true,
+      "latency_ms": 0.04,
+      "insufficient": false,
+      "score_summary": {
+        "optionA_total": 37.83,
+        "optionB_total": 37.83
+      },
+      "score_breakdown": {
+        "cost": {
+          "weight": 1.57,
+          "impact": 0.0
+        },
+        "growth": {
+          "weight": 1.0,
+          "impact": 0.0
+        },
+        "risk": {
+          "weight": 2.63,
+          "impact": 0.0
+        },
+        "goal_alignment": {
+          "weight": 1.0,
+          "impact": 0.0
+        }
+      },
+      "top_driver": "cost",
+      "expected_top_driver": "risk"
+    },
+    {
+      "id": "case_024_equity_offer_improves",
+      "expected_recommendation": "Option B",
+      "predicted_recommendation": "Option A",
+      "ok": false,
+      "latency_ms": 0.04,
+      "insufficient": false,
+      "score_summary": {
+        "optionA_total": 34.95,
+        "optionB_total": 31.95
+      },
+      "score_breakdown": {
+        "cost": {
+          "weight": 1.9,
+          "impact": 0.0
+        },
+        "growth": {
+          "weight": 1.65,
+          "impact": 0.0
+        },
+        "risk": {
+          "weight": 1.0,
+          "impact": 3.0
+        },
+        "goal_alignment": {
+          "weight": 1.0,
+          "impact": 0.0
+        }
+      },
+      "top_driver": "risk",
+      "expected_top_driver": "growth"
+    },
+    {
+      "id": "case_025_equity_offer_weak",
+      "expected_recommendation": "Option A",
+      "predicted_recommendation": "Option A",
+      "ok": true,
+      "latency_ms": 0.04,
+      "insufficient": false,
+      "score_summary": {
+        "optionA_total": 35.6,
+        "optionB_total": 29.0
+      },
+      "score_breakdown": {
+        "cost": {
+          "weight": 1.9,
+          "impact": 0.0
+        },
+        "growth": {
+          "weight": 1.0,
+          "impact": 0.0
+        },
+        "risk": {
+          "weight": 1.65,
+          "impact": 6.6
+        },
+        "goal_alignment": {
+          "weight": 1.0,
+          "impact": 0.0
+        }
+      },
+      "top_driver": "risk",
+      "expected_top_driver": "cost"
+    },
+    {
+      "id": "case_026_family_time",
+      "expected_recommendation": "Option B",
+      "predicted_recommendation": "Option B",
+      "ok": true,
+      "latency_ms": 0.04,
+      "insufficient": false,
+      "score_summary": {
+        "optionA_total": 34.3,
+        "optionB_total": 36.03
+      },
+      "score_breakdown": {
+        "cost": {
+          "weight": 1.57,
+          "impact": 0.0
+        },
+        "growth": {
+          "weight": 1.0,
+          "impact": 0.0
+        },
+        "risk": {
+          "weight": 1.73,
+          "impact": 1.73
+        },
+        "goal_alignment": {
+          "weight": 1.9,
+          "impact": 0.0
+        }
+      },
+      "top_driver": "risk",
+      "expected_top_driver": "goal_alignment"
+    },
+    {
+      "id": "case_027_risky_investment_money",
+      "expected_recommendation": "Option A",
+      "predicted_recommendation": "Option A",
+      "ok": true,
+      "latency_ms": 0.04,
+      "insufficient": false,
+      "score_summary": {
+        "optionA_total": 31.3,
+        "optionB_total": 31.3
+      },
+      "score_breakdown": {
+        "cost": {
+          "weight": 1.9,
+          "impact": 0.0
+        },
+        "growth": {
+          "weight": 1.0,
+          "impact": 0.0
+        },
+        "risk": {
+          "weight": 1.65,
+          "impact": 0.0
+        },
+        "goal_alignment": {
+          "weight": 1.0,
+          "impact": 0.0
+        }
+      },
+      "top_driver": "cost",
+      "expected_top_driver": "risk"
+    },
+    {
+      "id": "case_028_learning_internship",
+      "expected_recommendation": "Option B",
+      "predicted_recommendation": "Option B",
+      "ok": true,
+      "latency_ms": 0.04,
+      "insufficient": false,
+      "score_summary": {
+        "optionA_total": 27.75,
+        "optionB_total": 32.85
+      },
+      "score_breakdown": {
+        "cost": {
+          "weight": 1.0,
+          "impact": 0.0
+        },
+        "growth": {
+          "weight": 2.55,
+          "impact": 5.1
+        },
+        "risk": {
+          "weight": 1.0,
+          "impact": 0.0
+        },
+        "goal_alignment": {
+          "weight": 1.0,
+          "impact": 0.0
+        }
+      },
+      "top_driver": "growth",
+      "expected_top_driver": "growth"
+    },
+    {
+      "id": "case_029_commute_tradeoff",
+      "expected_recommendation": "Option A",
+      "predicted_recommendation": "Option A",
+      "ok": true,
+      "latency_ms": 0.04,
+      "insufficient": false,
+      "score_summary": {
+        "optionA_total": 31.55,
+        "optionB_total": 27.75
+      },
+      "score_breakdown": {
+        "cost": {
+          "weight": 1.9,
+          "impact": 3.8
+        },
+        "growth": {
+          "weight": 1.0,
+          "impact": 0.0
+        },
+        "risk": {
+          "weight": 1.0,
+          "impact": 0.0
+        },
+        "goal_alignment": {
+          "weight": 1.65,
+          "impact": 0.0
+        }
+      },
+      "top_driver": "cost",
+      "expected_top_driver": "cost"
+    },
+    {
+      "id": "case_030_commute_lifestyle_first",
+      "expected_recommendation": "Option B",
+      "predicted_recommendation": "Option A",
+      "ok": false,
+      "latency_ms": 0.03,
+      "insufficient": false,
+      "score_summary": {
+        "optionA_total": 31.05,
+        "optionB_total": 27.75
+      },
+      "score_breakdown": {
+        "cost": {
+          "weight": 1.65,
+          "impact": 3.3
+        },
+        "growth": {
+          "weight": 1.0,
+          "impact": 0.0
+        },
+        "risk": {
+          "weight": 1.0,
+          "impact": 0.0
+        },
+        "goal_alignment": {
+          "weight": 1.9,
+          "impact": 0.0
+        }
+      },
+      "top_driver": "cost",
+      "expected_top_driver": "goal_alignment"
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-surface: #ffffff;
+  --color-surface-muted: #f8fafc;
+  --color-border-subtle: #e2e8f0;
+  --color-ink: #0f172a;
+  --color-option-a: #1d4ed8;
+  --color-option-b: #0369a1;
+}
+
+@layer base {
+  body {
+    @apply min-h-screen antialiased text-ink;
+    background-color: var(--color-surface-muted);
+    /* Single neutral vignette — no option hues in the page backdrop */
+    background-image: radial-gradient(
+      ellipse 110% 65% at 50% -18%,
+      rgb(15 23 42 / 0.04),
+      transparent 55%
+    );
+  }
+}
+
+@layer components {
+  .panel {
+    @apply rounded-xl border border-borderSubtle bg-surface shadow-panel;
+  }
+
+  .panel-elevated {
+    @apply rounded-2xl border border-borderSubtle bg-surface shadow-[0_12px_40px_-12px_rgb(15_23_42/0.12)] ring-1 ring-slate-900/[0.04];
+  }
+
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand/45 focus-visible:ring-offset-2;
+  }
+}
