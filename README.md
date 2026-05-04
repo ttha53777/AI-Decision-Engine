@@ -1,156 +1,285 @@
-# AI Decision Engine MVP
+# AI Decision Engine
 
-Minimal full-stack MVP for comparing two options with structured AI agent analysis and a weighted final judge recommendation.
+A structured AI decision-support tool that compares two options across four dimensions — **cost, growth, risk, and goal alignment** — then returns a weighted, explainable recommendation.
+
+Most AI chatbots give vague answers when asked, “What should I do?” This project takes a more structured approach: it separates the decision into independent specialist agents, scores each option, applies user-defined priorities as weights, and produces a clear recommendation with confidence, tradeoffs, and scenario analysis.
+
+---
+
+## Overview
+
+AI Decision Engine helps users make complex decisions by combining:
+
+- Multi-agent analysis
+- Priority-based weighting
+- Structured scoring
+- Explainable recommendations
+- Confidence reasoning
+- Scenario analysis
+- Input-quality safeguards
+- Evaluation testing
+
+The goal is not just to give advice, but to make the reasoning behind that advice measurable and transparent.
+
+---
+
+## Why I Built This
+
+High-stakes decisions are difficult because tradeoffs are often unclear. For example, when comparing two job offers, one option may have better salary while the other has stronger long-term growth. Most AI tools respond with generic pros and cons but avoid taking a clear stance.
+
+This project was built to solve that problem by forcing the system to:
+
+1. Analyze each option across separate decision dimensions.
+2. Convert user priorities into actual scoring weights.
+3. Produce a final recommendation with clear reasoning.
+4. Explain what conditions would change the outcome.
+5. Detect when the user has not provided enough information.
+
+Instead of saying “it depends,” the engine gives a structured answer with a measurable recommendation.
+
+---
+
+## Example Use Cases
+
+### Career Decisions
+
+- Comparing two job offers
+- Choosing between a startup and a larger company
+- Deciding whether to accept a promotion
+- Evaluating whether to switch roles or stay put
+
+### Financial Decisions
+
+- Renting vs buying
+- Investing in a course or bootcamp
+- Comparing financial tradeoffs between two options
+
+### Personal Decisions
+
+- Relocating to a new city
+- Choosing between flexibility and stability
+- Balancing commute, rent, and lifestyle
+
+### Entrepreneurship
+
+- Keeping a stable job vs starting a business
+- Deciding whether to build runway before quitting
+- Comparing safer vs higher-upside paths
+
+---
+
+## How It Works
+
+The engine uses four specialist agents:
+
+| Agent | Role |
+|---|---|
+| Cost Agent | Evaluates financial cost, affordability, and economic tradeoffs |
+| Growth Agent | Evaluates learning potential, upside, and long-term opportunity |
+| Risk Agent | Evaluates uncertainty, downside, and stability |
+| Goal Alignment Agent | Evaluates how well each option matches the user's stated goals |
+
+Each agent scores both options independently. The system then applies priority-based weights based on what the user cares about most.
+
+A judge agent combines the weighted scores and specialist reasoning into one final recommendation.
+
+---
+
+## Core Features
+
+- Compares two options using structured AI analysis
+- Uses separate agents for cost, growth, risk, and goal alignment
+- Converts user priorities into scoring weights
+- Produces weighted totals for both options
+- Returns a clear recommendation instead of vague advice
+- Includes confidence level and confidence reasoning
+- Shows key factors driving the decision
+- Explains what would change the recommendation
+- Provides best-case and worst-case scenario analysis
+- Detects vague inputs and returns `insufficient_information`
+- Includes an evaluation harness for regression testing
+
+---
 
 ## Tech Stack
 
-- Frontend: Next.js 14 + TypeScript + Tailwind CSS
-- Backend: FastAPI + Pydantic
-- No database
-- No authentication
+### Backend
 
-## Folder Structure
+- Python
+- FastAPI
+- LangChain
+- OpenAI API
+- Pydantic
+- Uvicorn
 
-```text
-Decision/
-  backend/
-    app/
-      agents/
-        cost_agent.py
-        goal_alignment_agent.py
-        growth_agent.py
-        judge_agent.py
-        risk_agent.py
-        prompts.py
-      routes/
-        decision.py
-      schemas/
-        decision.py
-      services/
-        decision_service.py
-        openai_service.py
-      main.py
-    .env.example
-    requirements.txt
-  frontend/
-    app/
-      globals.css
-      layout.tsx
-      page.tsx
-    components/
-      ResultCard.tsx
-    lib/
-      api.ts
-      types.ts
-    package.json
-    tailwind.config.ts
-    tsconfig.json
-  README.md
+### Frontend
+
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+
+### Testing / Evaluation
+
+- JSONL evaluation cases
+- Mock evaluation mode
+- Live OpenAI evaluation mode
+- Accuracy threshold checks
+- Regression reports
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+Make sure you have:
+
+- Python 3.12+
+- Node.js 18+
+- An OpenAI API key
+
+---
+
+## Backend Setup
+
+```bash
+cd backend
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+cp .env.example .env
 ```
 
-## Run Backend
+Then add your OpenAI API key to `.env`:
 
-1. Go to backend:
-   - `cd backend`
-2. Create and activate virtual environment:
-   - `python3 -m venv .venv`
-   - `source .venv/bin/activate`
-3. Install dependencies:
-   - `pip install -r requirements.txt`
-4. Configure environment:
-   - `cp .env.example .env`
-   - set `OPENAI_API_KEY` in `.env`
-5. Start API server:
-   - `uvicorn app.main:app --reload --port 8000`
+```bash
+OPENAI_API_KEY=your_api_key_here
+```
 
-Backend base URL: `http://localhost:8000`
+Run the backend:
 
-## Run Frontend
+```bash
+uvicorn app.main:app --reload --port 8000
+```
 
-1. Open a second terminal and go to frontend:
-   - `cd frontend`
-2. Install dependencies:
-   - `npm install`
-3. Start app:
-   - `npm run dev`
+The backend runs at:
 
-Frontend URL: `http://localhost:3000`
+```txt
+http://localhost:8000
+```
 
-Optional API URL override:
-- Create `frontend/.env.local` with:
-  - `NEXT_PUBLIC_API_BASE_URL=http://localhost:8000`
+---
 
-## API Contract
+## Frontend Setup
 
-### POST `/analyze-decision`
+```bash
+cd frontend
+npm install
+npm run dev
+```
 
-Request:
+The frontend runs at:
+
+```txt
+http://localhost:3000
+```
+
+Optional: create `frontend/.env.local` to override the backend URL.
+
+```bash
+NEXT_PUBLIC_API_BASE_URL=http://localhost:8000
+```
+
+---
+
+## API Reference
+
+### Analyze Decision
+
+```txt
+POST /analyze-decision
+```
+
+### Example Request
 
 ```json
 {
-  "decision": "Should I choose job A or job B?",
-  "optionA": "Stay at current company for stability",
-  "optionB": "Join a startup for growth",
-  "priorities": ["money", "growth", "stability"]
+  "decision": "Choosing between two job offers — optimize for long-term growth but care about stable income.",
+  "optionA": "Large company: higher base, strong benefits, slower growth.",
+  "optionB": "Startup: lower base, meaningful equity, faster learning, uncertain runway.",
+  "priorities": ["growth", "money", "stability"]
 }
 ```
 
-Response:
+### Example Response
 
 ```json
 {
   "recommendation": {
     "recommendation": "Option B",
-    "reason": "Option B wins on growth upside and goal-fit while Option A remains stronger on stability. Because growth is a named priority and the weighted totals are meaningfully higher, Option B is the better fit overall.",
+    "reason": "Option B wins on growth upside and goal fit. Growth is the top priority and the weighted total is meaningfully higher.",
     "confidence": "medium",
-    "confidence_reason": "Scores are separated enough to make a clear recommendation, but there are still meaningful tradeoffs.",
+    "confidence_reason": "Scores are separated enough for a clear recommendation, but the tradeoffs remain meaningful.",
     "score_summary": {
       "optionA_total": 25.5,
       "optionB_total": 29.0
     },
     "score_breakdown": {
-      "cost": { "weight": 1.9, "impact": -1.9 },
-      "growth": { "weight": 1.75, "impact": 7.0 },
-      "risk": { "weight": 1.4, "impact": -2.8 },
-      "goal_alignment": { "weight": 1.0, "impact": 2.0 }
+      "cost": {
+        "weight": 1.65,
+        "impact": -1.65
+      },
+      "growth": {
+        "weight": 1.9,
+        "impact": 7.6
+      },
+      "risk": {
+        "weight": 1.4,
+        "impact": -2.8
+      },
+      "goal_alignment": {
+        "weight": 1.0,
+        "impact": 2.0
+      }
     },
     "key_factors": [
-      "Growth weighted heavily from user priorities",
-      "Option B has stronger growth upside"
+      "Growth was weighted heavily based on the user's priorities.",
+      "Option B has stronger long-term learning and upside."
     ],
     "what_would_change": [
-      "If guaranteed compensation became significantly higher in Option A",
-      "If stability became the top priority"
+      "If stability became the top priority.",
+      "If Option B's funding or runway became highly uncertain."
     ],
     "scenario_analysis": {
-      "optionA_best_case": "Steady progression with reliable income and strong work-life balance.",
+      "optionA_best_case": "Steady progression, reliable income, and strong work-life balance.",
       "optionA_worst_case": "Slower development and lower long-term upside.",
-      "optionB_best_case": "High upside from accelerated growth and equity gains.",
+      "optionB_best_case": "High upside from accelerated growth and potential equity gains.",
       "optionB_worst_case": "Startup volatility creates financial and career instability."
     }
   },
   "agents": {
     "cost": {
       "agent": "cost",
-      "analysis": "Cost agent favors Option A based on pricing cues and cost-related priorities.",
+      "analysis": "...",
       "scoreA": 7,
       "scoreB": 5
     },
     "growth": {
       "agent": "growth",
-      "analysis": "Growth agent highlights future upside and skill acceleration, leaning toward Option B.",
+      "analysis": "...",
       "scoreA": 5,
       "scoreB": 8
     },
     "risk": {
       "agent": "risk",
-      "analysis": "Risk agent compares downside exposure and reliability signals, preferring Option A.",
+      "analysis": "...",
       "scoreA": 8,
       "scoreB": 6
     },
     "goal_alignment": {
       "agent": "goal_alignment",
-      "analysis": "Goal alignment agent checked stated priorities against each option and leaned toward Option B.",
+      "analysis": "...",
       "scoreA": 5,
       "scoreB": 7
     }
@@ -158,26 +287,103 @@ Response:
 }
 ```
 
+---
+
+## Input Quality Guard
+
+If the user input is too vague, the engine does not run the full agent pipeline. Instead, it returns:
+
+```json
+{
+  "recommendation": "insufficient_information",
+  "next_steps": [
+    "Clarify the two options.",
+    "Add specific goals or priorities.",
+    "Include relevant constraints such as money, time, risk, or timeline."
+  ]
+}
+```
+
+This prevents the system from producing confident recommendations based on weak input.
+
+---
+
 ## Evaluation Harness
 
-The evaluation harness runs a curated set of decision cases to track recommendation quality over time.
+The project includes an evaluation harness with 30 curated decision cases covering:
 
-### Run (mock mode, deterministic)
+- Job offers
+- Career transitions
+- Investment decisions
+- Lifestyle tradeoffs
+- Vague inputs that should trigger fallback behavior
 
-From repo root:
+The harness helps test whether changes to prompts, weighting logic, or schemas improve or degrade recommendation quality.
 
-- `python backend/evals/run_evals.py --mode mock`
+### Mock Mode
 
-This writes a report to `backend/evals/reports/latest.json` and exits non-zero if accuracy drops below the threshold.
+Mock mode is deterministic and fast, making it useful for CI or local regression checks.
 
-Options:
-- `--min-accuracy 0.70`: configure pass/fail threshold
-- `--exclude-insufficient`: exclude cases whose expected recommendation is `insufficient_information` from accuracy
+```bash
+python backend/evals/run_evals.py --mode mock
+```
 
-### Run (live mode, OpenAI)
+Writes a report to:
 
-Make sure `backend/.env` has `OPENAI_API_KEY`, then:
+```txt
+backend/evals/reports/latest.json
+```
 
-- `python backend/evals/run_evals.py --mode live`
+### Options
 
-Note: live mode is slower/costs tokens; mock mode is intended for CI regression checks.
+```bash
+--min-accuracy 0.70
+--exclude-insufficient
+```
+
+### Live Mode
+
+Live mode uses real OpenAI calls.
+
+```bash
+python backend/evals/run_evals.py --mode live
+```
+
+This is useful for validating prompt changes, but it is slower and uses tokens.
+
+---
+
+## Key Design Decisions
+
+### Why separate specialist agents?
+
+A single prompt can sound thorough while still mixing together cost, risk, growth, and personal goals. Separating the agents makes each dimension more focused and easier to evaluate.
+
+### Why use priority-based weighting?
+
+User priorities should actually affect the outcome. If a user lists growth as their top priority, the growth score should matter more in the final recommendation.
+
+### Why force a recommendation?
+
+Most AI advice avoids taking a stance. This system is designed to recommend one option while still explaining confidence, tradeoffs, and what could change the outcome.
+
+### Why include an eval harness?
+
+Prompt changes can silently break behavior. The eval harness makes regressions visible by testing recommendations against expected outcomes and top drivers.
+
+---
+
+## Future Improvements
+
+- Add support for comparing more than two options
+- Add saved decision history
+- Add user-adjustable weights in the frontend
+- Add charts for score breakdowns
+- Add authentication for persistent decision tracking
+- Improve evaluation coverage with more edge cases
+
+---
+
+## Project Status
+
+This project is actively being developed as a full-stack AI application focused on structured reasoning, explainability, and decision support.
